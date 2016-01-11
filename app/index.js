@@ -1,0 +1,1 @@
+React.render(<div>Test</div>, document.getElementById('root-container'));
