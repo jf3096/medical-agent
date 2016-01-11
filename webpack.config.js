@@ -2,7 +2,7 @@ var path = require('path');
 var webpack = require('webpack');
 
 module.exports = {
-    devtool: 'source-map',
+    devtool: process.env.WEBPACK_DEVTOOL || 'source-map',
 
     entry: [
         'webpack-hot-middleware/client',
@@ -34,8 +34,8 @@ module.exports = {
                 ]
             }
         }, {
-            test: /\.scss$/,
-            loader: 'style!css!sass'
+            test: /\.less/,
+            loader: 'style!css!less'
         }, {
             test: /\.css$/, // Only .css files
             loader: 'style!css' // Run both loaders
@@ -44,14 +44,22 @@ module.exports = {
     },
 
     resolve: {
-        extensions: ['', '.js', '.jsx'],
+        extensions: ['', '.js', '.jsx', 'tsx'],
         alias: {
-            'react': 'node_modules/react-lite/dist/react-lite.min',
-            'react-dom': 'node_modules/react-lite/dist/react-lite.min'
+            'react': path.join(__dirname, 'node_modules/react-lite/dist/react-lite.min'),
+            'react-dom': path.join(__dirname, 'node_modules/react-lite/dist/react-lite.min')
         }
+    },
+    devServer: {
+        contentBase: "./app",
+        noInfo: true,
+        hot: true,
+        inline: true
     },
 
     plugins: [
-        new webpack.NoErrorsPlugin()
+        new webpack.NoErrorsPlugin(),
+        new webpack.HotModuleReplacementPlugin()
+        //new webpack.optimize.UglifyJsPlugin({compress: {warnings: false}}),
     ]
 };
