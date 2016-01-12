@@ -22,32 +22,33 @@ module.exports = {
      * {test: /\.js$/,loader: "eslint-loader",exclude: /node_modules/,}
      */
     module: {
-        loaders: [{
-            test: /\.jsx?$/,
-            exclude: /(node_modules|bower_components)/,
-            loader: 'babel',
-            query: {
-                presets: ['react', 'stage-0', 'es2015'],
-                cacheDirectory: true,
-                plugins: [
-                    "transform-runtime"
-                ]
+        loaders: [
+            {
+                test: /\.tsx?$/,
+                exclude: /(node_modules|bower_components|typings)/,
+                loader: 'ts-loader',
+            },
+            {
+                test: /\.less/,
+                loader: 'style!css!less'
+            },
+            {
+                test: /\.css$/,
+                loader: 'style!css'
+            },
+            {
+                test: /\.(png|jpg)$/,
+                loader: 'url-loader?limit=8192'
             }
-        }, {
-            test: /\.less/,
-            loader: 'style!css!less'
-        }, {
-            test: /\.css$/, // Only .css files
-            loader: 'style!css' // Run both loaders
-        },
-            {test: /\.(png|jpg)$/, loader: 'url-loader?limit=8192'}]
+        ]
     },
 
     resolve: {
-        extensions: ['', '.js', '.jsx', 'tsx'],
+        extensions: ['', '.js', '.tsx'],
         alias: {
             'react': path.join(__dirname, 'node_modules/react-lite/dist/react-lite.min'),
-            'react-dom': path.join(__dirname, 'node_modules/react-lite/dist/react-lite.min')
+            'react-dom': path.join(__dirname, 'node_modules/react-lite/dist/react-lite.min'),
+            'fastclick': path.join(__dirname, 'node_modules/fastclick/lib/fastclick')
         }
     },
     devServer: {

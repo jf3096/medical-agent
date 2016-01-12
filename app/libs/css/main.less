@@ -1,0 +1,102 @@
+@import (reference) "config";
+
+/* ============================================================
+
+    全局样式
+    
+============================================================ */
+
+body {
+  //background-color: @color-body-background;
+  //font-family: @font-family;
+  //.fontSize(@font-normal);
+  //color: @color-body-font;
+  // -webkit-text-stroke-color: @color-body-font;
+  -webkit-font-smoothing: antialiased;
+  -webkit-overflow-scrolling: touch;
+  overflow-y: auto;
+}
+
+/* ============================================================
+
+    通用样式/方法
+    
+============================================================ */
+
+.li-clickable:active, .clickable:active {
+  opacity: .8;
+}
+
+/* ============================================================
+
+    按钮样式 <button class="btn btn-blue">
+    说明：如果需要修改样式 建议： <button class="btn btn-blue xxx">
+    
+============================================================ */
+.btn {
+  display: block;
+  border: none;
+  width: 100%;
+  .fontSize(@btn-font-normal);
+  .borderRadius(@btn-radius);
+  .padding2(12, 24);
+  .heightSingle(@btn-normal-height);
+}
+
+.btn-s {
+  .heightSingle(60);
+  padding: 0;
+}
+
+.btn {
+  &:focus {
+    outline: 0;
+  }
+  &[disabled] {
+    background-color: @btn-color-disabled;
+    pointer-events: none;
+  }
+}
+
+.btn-blue {
+  background-color: @btn-color-blue;
+  color: @btn-font-light;
+  &:active {
+    background-color: @btn-color-blue-active;
+  }
+}
+
+.btn-default {
+  background-color: @btn-color-default;
+  color: @color-default-button-text;
+  border: 1px solid @btn-color-default-border;
+  &:active {
+    border-color: transparent;
+    background-color: @btn-color-default-active;
+  }
+}
+
+.btn-green {
+  color: @btn-font-light;
+  background-color: @btn-color-green;
+  &:active {
+    background-color: @btn-color-green-active;
+  }
+}
+
+.btn-red {
+  color: @btn-font-light;
+  background-color: @btn-color-red;
+  &:active {
+    background-color: @btn-color-red-active;
+  }
+}
+
+.btn-gray {
+  background-color: #EEEEEE;
+  color: @btn-font-black;
+  border: 1px solid @btn-color-default-border;
+  &:active {
+    opacity: 0.8;
+  }
+}
