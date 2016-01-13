@@ -6,18 +6,17 @@
 declare type ClassValue = string | number | ClassDictionary | ClassArray;
 
 interface ClassDictionary {
-    [id: string]: boolean;
+	[id: string]: boolean;
 }
 
-interface ClassArray extends Array<ClassValue> {
-}
+interface ClassArray extends Array<ClassValue> { }
 
 interface ClassNamesFn {
-    (...classes:ClassValue[]): string;
+	(...classes: ClassValue[]): string;
 }
 
-declare var classNames:ClassNamesFn;
+declare var classNames: ClassNamesFn;
 
 declare module "classnames" {
-    export = classNames
+	export = classNames
 }

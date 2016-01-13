@@ -7,6 +7,12 @@
   "installed": {
     "react/react.d.ts": {
       "commit": "b3aeee64552e324581fdbe0926f4a96e981e451b"
+    },
+    "fastclick/fastclick.d.ts": {
+      "commit": "984a41af67d76b5134e0d4991a30f813dfb8561f"
+    },
+    "classnames/classnames.d.ts": {
+      "commit": "984a41af67d76b5134e0d4991a30f813dfb8561f"
     }
   }
 }

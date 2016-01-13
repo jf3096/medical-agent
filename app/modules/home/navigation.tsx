@@ -1,23 +1,41 @@
 import * as React from "react";
-type ReactProps = React.Props<React.DOMComponent<any>>;
+import {Card, CardProps, ColorEnum,ICardProps} from "./card";
 
-interface NavigationProps extends ReactProps {
-    icon : string;
-    caption : string;
-    handler : ()=>boolean;
-    onCloseRequest? : ()=>void;
-}
+export class Navigation extends React.Component<any,any> {
+    private cardPropsArray:Array<ICardProps>;
 
-export class Navigation extends React.Component<NavigationProps,{}> {
-    render() {
-        return (
-            <ul className="nav">
-                <li></li>
-            </ul>
-        );
+    constructor() {
+        super();
+        this.cardPropsArray = new Array<CardProps>();
+        this.cardPropsArray.push(
+            new CardProps("", "./img/nav-card.png", "我的名片", ColorEnum.BLUE),
+            new CardProps("", "./img/nav-card.png", "我的医生", ColorEnum.RED),
+            new CardProps("", "./img/nav-card.png", "统方查询", ColorEnum.YELLOW),
+            new CardProps("", "./img/nav-card.png", "我的药品", ColorEnum.GREEN)
+        )
     }
 
-    private handleClick() {
+    shouldComponentUpdate() {
+        return false;
+    }
 
+    render() {
+        let cardList = this.cardPropsArray.map((cardProps) => {
+            return (
+                <li>
+                    <Card
+                        href={cardProps.href}
+                        fileName={cardProps.fileName}
+                        cardName={cardProps.cardName}
+                        colorType={cardProps.colorType}
+                    />
+                </li>
+            );
+        });
+        return (
+            <ul className="nav">
+                {cardList}
+            </ul>
+        );
     }
 }

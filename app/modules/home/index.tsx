@@ -1,15 +1,10 @@
 import * as React from 'react';
+import {Navigation} from "./navigation";
 
-export class Navigation extends React.Component<{},{}> {
+export class Home extends React.Component<any,any> {
     render() {
         return (
-            <ul className="nav">
-                <li></li>
-            </ul>
+            <Navigation />
         );
-    }
-
-    private handleClick() {
-
     }
 }

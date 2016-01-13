@@ -1,7 +1,8 @@
-//noinspection TypeScriptCheckImport
-import {FastClick} from 'fastclick';
-import * as React from 'react';
+import {FastClick} from "fastclick";
+import "./libs/js/px2rem.ts";
+import * as React from "react";
+import {Home} from "./modules/home/index";
 
-//FastClick.attach(document.body);
+FastClick.attach(document.body);
 
-React.render(<h1>Test</h1>, document.getElementById('container'));
+React.render(<Home />, document.getElementById('container'));

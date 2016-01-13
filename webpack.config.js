@@ -46,8 +46,8 @@ module.exports = {
     resolve: {
         extensions: ['', '.js', '.tsx'],
         alias: {
-            'react': path.join(__dirname, 'node_modules/react-lite/dist/react-lite.min'),
-            'react-dom': path.join(__dirname, 'node_modules/react-lite/dist/react-lite.min'),
+            'react': 'react-lite',
+            'react-dom': 'react-lite',
             'fastclick': path.join(__dirname, 'node_modules/fastclick/lib/fastclick')
         }
     },
@@ -60,7 +60,7 @@ module.exports = {
 
     plugins: [
         new webpack.NoErrorsPlugin(),
-        new webpack.HotModuleReplacementPlugin()
+        new webpack.HotModuleReplacementPlugin(),
         //new webpack.optimize.UglifyJsPlugin({compress: {warnings: false}}),
     ]
 };

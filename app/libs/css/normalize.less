@@ -7,7 +7,6 @@
  * 2. Prevent iOS and IE text size adjust after device orientation change,
  *    without disabling user zoom.
  */
-
 html,
 body,
 header,
@@ -67,7 +66,9 @@ h5 {
 
 html,
 body {
-  height: 100%;
+  -webkit-font-smoothing: antialiased;
+  -webkit-overflow-scrolling: touch;
+  overflow-y: auto;
 }
 
 a {
@@ -100,18 +101,12 @@ html {
  */
 
 article,
-aside,
-details,
-figcaption,
 figure,
 footer,
 header,
-hgroup,
-main,
 menu,
 nav,
-section,
-summary {
+section {
   display: block;
 }
 
@@ -171,17 +166,6 @@ a:hover {
   outline: 0;
 }
 
-/* Text-level semantics
-   ========================================================================== */
-
-/**
- * Address styling not present in IE 8/9/10/11, Safari, and Chrome.
- */
-
-abbr[title] {
-  border-bottom: 1px dotted;
-}
-
 /**
  * Address style set to `bolder` in Firefox 4+, Safari, and Chrome.
  */
@@ -207,43 +191,6 @@ dfn {
 h1 {
   font-size: 2em;
   margin: 0.67em 0;
-}
-
-/**
- * Address styling not present in IE 8/9.
- */
-
-mark {
-  background: #ff0;
-  color: #000;
-}
-
-/**
- * Address inconsistent and variable font size in all browsers.
- */
-
-small {
-  font-size: 80%;
-}
-
-/**
- * Prevent `sub` and `sup` affecting `line-height` in all browsers.
- */
-
-sub,
-sup {
-  font-size: 75%;
-  line-height: 0;
-  position: relative;
-  vertical-align: baseline;
-}
-
-sup {
-  top: -0.5em;
-}
-
-sub {
-  bottom: -0.25em;
 }
 
 /* Embedded content
@@ -288,23 +235,6 @@ hr {
 /**
  * Contain overflow in all browsers.
  */
-
-pre {
-  overflow: auto;
-}
-
-/**
- * Address odd `em`-unit font size rendering in all browsers.
- */
-
-code,
-kbd,
-pre,
-samp {
-  font-family: monospace, monospace;
-  font-size: 1em;
-}
-
 /* Forms
    ========================================================================== */
 
@@ -454,16 +384,6 @@ input[type="search"]::-webkit-search-decoration {
 }
 
 /**
- * Define consistent border, margin, and padding.
- */
-
-fieldset {
-  border: 1px solid #c0c0c0;
-  margin: 0 2px;
-  padding: 0.35em 0.625em 0.75em;
-}
-
-/**
  * 1. Correct `color` not being inherited in IE 8/9/10/11.
  * 2. Remove padding so people aren't caught out if they zero out fieldsets.
  */
@@ -481,15 +401,6 @@ legend {
 
 textarea {
   overflow: auto;
-}
-
-/**
- * Don't inherit the `font-weight` (applied by a rule above).
- * NOTE: the default cannot safely be changed in Chrome and Safari on OS X.
- */
-
-optgroup {
-  font-weight: bold;
 }
 
 /* Tables
