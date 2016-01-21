@@ -8,10 +8,10 @@ export class Navigation extends React.Component<any,any> {
         super();
         this.cardPropsArray = new Array<CardProps>();
         this.cardPropsArray.push(
-            new CardProps("", "./img/nav-card.png", "我的名片", ColorEnum.BLUE),
-            new CardProps("", "./img/nav-card.png", "我的医生", ColorEnum.RED),
-            new CardProps("", "./img/nav-card.png", "统方查询", ColorEnum.YELLOW),
-            new CardProps("", "./img/nav-card.png", "我的药品", ColorEnum.GREEN)
+            new CardProps("", require('./img/nav-card.png'), "我的名片", ColorEnum.BLUE),
+            new CardProps("", require('./img/nav-card.png'), "我的医生", ColorEnum.RED),
+            new CardProps("", require('./img/nav-card.png'), "统方查询", ColorEnum.YELLOW),
+            new CardProps("", require('./img/nav-card.png'), "我的药品", ColorEnum.GREEN)
         )
     }
 
@@ -20,9 +20,9 @@ export class Navigation extends React.Component<any,any> {
     }
 
     render() {
-        let cardList = this.cardPropsArray.map((cardProps) => {
+        let cardList = this.cardPropsArray.map((cardProps, index) => {
             return (
-                <li>
+                <li key={index}>
                     <Card
                         href={cardProps.href}
                         fileName={cardProps.fileName}
@@ -32,6 +32,7 @@ export class Navigation extends React.Component<any,any> {
                 </li>
             );
         });
+
         return (
             <ul className="nav">
                 {cardList}

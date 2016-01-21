@@ -1,0 +1,21 @@
+@import (reference) "../../../libs/css/config.less";
+
+.lw {
+  position: relative;
+  padding-left: 0;
+  margin-top: 0;
+  margin-bottom: 0;
+  list-style: none;
+  background-color: #fff;
+  &:before {
+    position: absolute;
+    right: 0;
+    left: 0;
+    height: 1px;
+    content: '';
+    background-color: #c8c7cc;
+    -webkit-transform: scaleY(.5);
+    transform: scaleY(.5);
+    top: -1px;
+  }
+}

@@ -1,4 +1,3 @@
-//import './app/modules/home/css/card.less';
 import './css/card.less';
 import * as React from "react";
 import * as classNames from 'classnames';
@@ -10,7 +9,7 @@ export enum ColorEnum{
     GREEN
 }
 
-export interface ICardProps extends React.Props<React.DOMComponent<any>> {
+export interface ICardProps {
     href: string;
     fileName: string;
     cardName:string;
@@ -32,7 +31,8 @@ export class CardProps implements ICardProps {
 }
 
 export class Card extends React.Component<ICardProps,any> {
-    private handleClick() {
+    private handleClick(e) {
+        e.preventDefault();
         location.href = this.props.href;
     }
 

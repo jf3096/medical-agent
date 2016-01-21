@@ -1,8 +1,10 @@
-import {FastClick} from "fastclick";
-import "./libs/js/px2rem.ts";
+import "./setup/preventOverflowScrollSetup";
+import "./setup/fastclickSetup";
+import "./libs/ts/extensions/index";
+
 import * as React from "react";
-import {Home} from "./modules/home/index";
+import * as ReactDOM from "react-dom";
 
-FastClick.attach(document.body);
+import {AppRouter} from './configs/router';
 
-React.render(<Home />, document.getElementById('container'));
+ReactDOM.render(<AppRouter />, document.getElementById('container'));

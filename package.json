@@ -4,6 +4,8 @@
   "description": "",
   "main": "server.js",
   "dependencies": {
+    "ntypescript": "1.201601180603.1",
+    "preventoverscrolljs": "0.0.1",
     "react-lite": "^0.0.18"
   },
   "devDependencies": {
@@ -18,11 +20,24 @@
     "css-loader": "^0.23.1",
     "express": "^4.13.3",
     "fastclick": "^1.0.6",
+    "file-loader": "^0.8.5",
+    "gulp-inline-source": "^2.1.0",
+    "gulp-rename": "^1.2.2",
+    "gulp-smoosher": "0.0.9",
+    "gulp-typedoc": "^1.2.1",
     "less": "^2.5.3",
     "less-loader": "^2.2.2",
+    "react": "^0.14.6",
+    "react-dom": "^0.14.6",
+    "react-global": "^0.1.8",
+    "react-mini-router": "^2.0.0",
+    "react-router": "^2.0.0-rc5",
+    "react-router-component": "^0.29.0",
+    "react-routes": "^0.2.6",
     "style-loader": "^0.13.0",
     "ts-loader": "^0.7.2",
     "typescript": "^1.7.5",
+    "url-loader": "^0.5.7",
     "webpack": "^1.12.10",
     "webpack-dev-middleware": "^1.4.0",
     "webpack-dev-server": "^1.14.0",
@@ -30,7 +45,9 @@
   },
   "scripts": {
     "start": "node server.js",
-    "debug": "node --debug server.js"
+    "debug": "node --debug server.js",
+    "yui": "yuidoc --server 5000",
+    "tsc": "tsc --jsx react --module commonjs"
   },
   "repository": {
     "type": "git",

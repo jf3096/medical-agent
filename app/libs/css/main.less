@@ -6,15 +6,31 @@
     全局样式
     
 ============================================================ */
+* {
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+  -webkit-user-select: none;
+  outline: 0;
+  -webkit-tap-highlight-color: transparent;
+}
+
+html, body {
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+
+}
 
 body {
-  //background-color: @color-body-background;
-  //font-family: @font-family;
-  //.fontSize(@font-normal);
-  //color: @color-body-font;
+  font-family: "Helvetica Neue", Helvetica, sans-serif;
   -webkit-font-smoothing: antialiased;
   -webkit-overflow-scrolling: touch;
   overflow-y: auto;
+}
+
+#container {
+  height: 100%;
+  position: inherit;
 }
 
 /* ============================================================
@@ -23,80 +39,43 @@ body {
     
 ============================================================ */
 
-.li-clickable:active, .clickable:active {
-  opacity: .8;
-}
-
 /* ============================================================
 
-    按钮样式 <button class="btn btn-blue">
-    说明：如果需要修改样式 建议： <button class="btn btn-blue xxx">
-    
+    Header 顶部导航栏
+
 ============================================================ */
-//.btn {
-//  display: block;
-//  border: none;
-//  width: 100%;
-//  .fontSize(@btn-font-normal);
-//  .borderRadius(@btn-radius);
-//  .padding2(12, 24);
-//  .heightSingle(@btn-normal-height);
-//}
-//
-//.btn-s {
-//  .heightSingle(60);
-//  padding: 0;
-//}
-//
-//.btn {
-//  &:focus {
-//    outline: 0;
-//  }
-//  &[disabled] {
-//    background-color: @btn-color-disabled;
-//    pointer-events: none;
-//  }
-//}
-//
-//.btn-blue {
-//  background-color: @btn-color-blue;
-//  color: @btn-font-light;
-//  &:active {
-//    background-color: @btn-color-blue-active;
-//  }
-//}
-//
-//.btn-default {
-//  background-color: @btn-color-default;
-//  color: @color-default-button-text;
-//  border: 1px solid @btn-color-default-border;
-//  &:active {
-//    border-color: transparent;
-//    background-color: @btn-color-default-active;
-//  }
-//}
-//
-//.btn-green {
-//  color: @btn-font-light;
-//  background-color: @btn-color-green;
-//  &:active {
-//    background-color: @btn-color-green-active;
-//  }
-//}
-//
-//.btn-red {
-//  color: @btn-font-light;
-//  background-color: @btn-color-red;
-//  &:active {
-//    background-color: @btn-color-red-active;
-//  }
-//}
-//
-//.btn-gray {
-//  background-color: #EEEEEE;
-//  color: @btn-font-black;
-//  border: 1px solid @btn-color-default-border;
-//  &:active {
-//    opacity: 0.8;
-//  }
-//}
+#ma-header {
+  position: fixed;
+  right: 0;
+  left: 0;
+  z-index: 10;
+  .heightSingle(88);
+  .padding2(0, 20);
+  background-color: #f7f7f7;
+  border-bottom: 0;
+  -webkit-box-shadow: 0 0 1px rgba(0, 0, 0, .85);
+  box-shadow: 0 0 1px rgba(0, 0, 0, .85);
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+  & + #container {
+    .paddingTop(88);
+  }
+}
+
+.ma-header {
+  &-title {
+    position: absolute;
+    font-size: 18px;
+    .lineHeight(88);
+    color: #000;
+    text-align: center;
+    white-space: nowrap;
+    .left(60);
+    .right(60);
+    display: inline-block;
+    width: auto;
+    margin: 0;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+}

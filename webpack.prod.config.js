@@ -9,7 +9,7 @@ var config = {
         this.module.noParse.push(new RegExp(path));
     },
 
-    devtool: process.env.WEBPACK_DEVTOOL || 'source-map',
+    devtool: process.env.WEBPACK_DEVTOOL || 'eval',
 
     entry: [
         'webpack-hot-middleware/client',
@@ -44,7 +44,7 @@ var config = {
                 loader: 'style!css'
             },
             {
-                test: /\.(jpe?g|png|gif|svg)$/i,
+                test: /\.(png|jpg)$/,
                 loader: 'url-loader?limit=8192'
             }
         ],
@@ -52,8 +52,11 @@ var config = {
     },
 
     resolve: {
-        extensions: ['', '.js', 'ts', '.tsx'],
-        alias: {}
+        extensions: ['', '.js', '.tsx'],
+        alias: {
+            'react': 'react-lite',
+            'react-dom': 'react-lite',
+        }
     },
     devServer: {
         contentBase: "./app",
@@ -63,9 +66,10 @@ var config = {
     },
 
     plugins: [
-        //new webpack.optimize.CommonsChunkPlugin('main', null, false),
+        new webpack.optimize.CommonsChunkPlugin('main', null, false),
         new webpack.NoErrorsPlugin(),
         new webpack.HotModuleReplacementPlugin(),
+        new webpack.optimize.UglifyJsPlugin({compress: {warnings: false}}),
     ]
 };
 config.addVendor('fastclick', node_module_dir + "/fastclick/lib/fastclick.js");
