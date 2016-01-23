@@ -1,0 +1,48 @@
+.ma {
+    width: 100%;
+    height: 1.6rem;
+    margin: 0.1rem;
+    border-radius: 0.04rem;
+    display: -moz-box;
+    display: -webkit-box;
+    -webkit-box-pack: center;
+    -moz-box-pack: center;
+    -ms-flex-align: center;
+    -webkit-align-items: center;
+    -moz-align-items: center;
+    align-items: center;
+    -webkit-box-align: center;
+    -moz-box-align: center;
+    -ms-flex-pack: center;
+    -webkit-justify-content: center;
+    -moz-justify-content: center;
+    justify-content: center;
+}
+
+.ma-blue {
+    background-color: #5A9CD5;
+}
+
+.ma-red {
+    background-color: #E65B3E;
+}
+
+.ma-yellow {
+    background-color: #EB9433;
+}
+
+.ma-green {
+    background-color: #0FBAB2;
+}
+
+.ma-text {
+    margin-left: 0.44rem;
+    font-size: 0.42rem;
+    color: #fff;
+}
+
+.ma img {
+    display: block;
+    width: 0.98rem;
+    height: 0.98rem;
+}
